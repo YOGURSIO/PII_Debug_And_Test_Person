@@ -4,16 +4,35 @@ namespace UnitTestAndDebug
 {
     public class Person
     {
-        public Person(string name, string id)
+        public Person(string name, string id, int age)
         {
             this.Name = name;
             this.ID = id;
+            this.Age = age;
         }
 
         private string name;
 
         private string id;
 
+        private int age;
+
+        public int Age
+        {
+            get
+            {
+                return this.age;
+            }
+
+            set
+            {
+                if (value > 1900)
+                {
+                    this.age = value;
+                }
+            }
+        }       
+       
         public string Name
         {
             get
@@ -47,7 +66,7 @@ namespace UnitTestAndDebug
 
         public void IntroduceYourself()
         {
-            Console.WriteLine($"Soy {this.Name} y mi cédula es {this.ID}");
+            Console.WriteLine($"Soy {this.Name} y mi cédula es {this.ID}, ademas naci en el año {this.age}");
         }
     }
 }
